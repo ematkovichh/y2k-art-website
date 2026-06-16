@@ -1,0 +1,34 @@
+✦ AGORA — a digital fever dream ✦
+Open index.html in a browser. Click "enter the dream" and scroll.
+
+THE FIVE ROOMS (+ a liminal corridor between Neon and Angels)
+  💎 Crystal Dreams   — iridescent / prism / holographic
+  🌃 Neon Memories    — Japanese neon nightlife, tanning-bed cyan
+  🦋 Digital Angels   — soft pink, wings, ethereal/alien
+  📼 Lost Y2K Archive — VHS, CRT, desktop windows, pink-bedroom files
+  🌸 Soft Fantasy     — dreamy out-of-focus pastel exit
+
+AESTHETIC NOTES (your references, baked in)
+  - Petra Collins softness: pastel soft-focus + expired-film haze on every panel
+  - Analog horror / backrooms: the "wrong turn" liminal corridor + glitch smiley CRT
+  - Coquette girlhood + Y2K: ribbons, lace, desktop windows, guestbook
+  - Doja "Agora Hills" + A$AP "LSD": holographic, chromatic aberration, VHS scanlines
+
+HOW TO DROP IN YOUR OWN PHOTOGRAPHY
+  Every artwork is a <div class="art ..."> with an empty <div class="surface"></div>.
+  Two ways to use a real image:
+
+  1) Easiest — set a background on the surface:
+     <div class="surface" style="background-image:url('img/your-photo.jpg')"></div>
+
+  2) Or replace the surface with an <img>:
+     <div class="art ..."><img src="img/your-photo.jpg" alt="">...</div>
+
+  The soft-focus/film overlay sits on top automatically, so your photos
+  inherit the dreamy Petra-Collins wash. Remove ".art .surface{filter:...}"
+  in the <style> if you want them perfectly sharp.
+
+GOOD TO KNOW
+  - Single self-contained file. No build step, works offline (fonts load from Google).
+  - Custom cursor, scroll reveals, holographic tilt, parallax, progress rail.
+  - Recommended reading you mentioned: Petra Collins, "Fairy Tales" 🎀

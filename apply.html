@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apply — ÉTHÉRÉE</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<nav class="nav">
+  <a href="index.html" class="brand">ÉTHÉRÉE</a>
+  <button class="nav-toggle" aria-label="Menu">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="models.html">Models</a></li>
+    <li><a href="editorial.html">Editorial</a></li>
+    <li><a href="apply.html" class="active">Apply</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</nav>
+
+<section class="page-hero">
+  <span class="eyebrow">Get scouted</span>
+  <h1>Become a <em>face</em></h1>
+  <p>No studio, no retouching, no experience required. Just you, a little daylight, and a few honest snapshots.</p>
+</section>
+
+<section class="section wrap">
+  <div class="form-wrap">
+    <form class="form-grid reveal" onsubmit="event.preventDefault(); this.innerHTML='<div class=\'field full\' style=\'text-align:center\'><h3 style=\'font-family:var(--serif);font-size:2rem\'>Thank you — we\'ll be in touch soon.</h3></div>';">
+      <div class="field"><label>First name</label><input type="text" required></div>
+      <div class="field"><label>Last name</label><input type="text" required></div>
+      <div class="field"><label>Email</label><input type="email" required></div>
+      <div class="field"><label>Phone</label><input type="tel"></div>
+      <div class="field"><label>City</label><input type="text"></div>
+      <div class="field"><label>Date of birth</label><input type="date"></div>
+      <div class="field"><label>Height (cm)</label><input type="number"></div>
+      <div class="field"><label>Category</label>
+        <select><option>Women</option><option>Men</option><option>Beauty</option><option>New faces</option></select>
+      </div>
+      <div class="field full"><label>Instagram / portfolio</label><input type="text" placeholder="@yourhandle"></div>
+      <div class="field full"><label>Tell us about yourself</label><textarea placeholder="A few words — where you're from, what you love."></textarea></div>
+      <div class="upload-box"><span>↑ Drag in your snapshots · portrait, profile &amp; full-length</span></div>
+      <div class="field full" style="margin-top:10px"><button type="submit" class="btn btn-fill">Submit application</button></div>
+    </form>
+
+    <div class="reveal d1" style="margin-top:70px; text-align:center">
+      <span class="eyebrow">What we look for</span>
+      <p class="lede" style="margin:18px auto 0; max-width:50ch">Presence over perfection. We sign individuality, warmth, and faces that linger.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-top">
+    <h3>ÉTHÉRÉE — soft power, beautifully managed.</h3>
+    <div class="footer-cols">
+      <div class="footer-col"><h5>Explore</h5><a href="models.html">Models</a><a href="editorial.html">Editorial</a><a href="apply.html">Apply</a><a href="about.html">About</a><a href="contact.html">Contact</a></div>
+      <div class="footer-col"><h5>Social</h5><a href="#">Instagram</a><a href="#">TikTok</a><a href="#">Pinterest</a></div>
+      <div class="footer-col"><h5>Studio</h5><p>14 Rue des Roses<br>Paris 75003</p><a href="mailto:hello@etheree.com">hello@etheree.com</a></div>
+    </div>
+  </div>
+  <div class="footer-bottom"><span>© 2024 ÉTHÉRÉE Model Management</span><span>Concept design · Dreamy editorial</span></div>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
