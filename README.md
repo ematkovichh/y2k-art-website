@@ -1,6 +1,8 @@
-# ÉTHÉRÉE — Model Agency Website Concept
+# y2k archive Website Concept
 
 A premium, photography-first concept inspired by the dreamy, romantic softness of the *Agora Hills* era — clean, modern, and easy to navigate.
+
+https://ematkovichh.github.io/y2k-art-website/
 
 ## Pages
 `index.html` (Home) · `models.html` · `editorial.html` · `apply.html` · `about.html` · `contact.html`
