@@ -1121,16 +1121,23 @@ $$('.widget .win-bar .x').forEach(x=>x.addEventListener('click',()=>{const w=x.c
 /* interactive guestbook.exe + loading screens */
 (function(){
   const form=$('#gbForm'),list=$('#gbList'),loader=$('#gbLoader'),bar=loader.querySelector('.gb-bar'),lmsg=$('#gbLoadMsg');
-  const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const MAX_ENTRIES=40;
   let entries=null;
   try{entries=JSON.parse(localStorage.getItem('gb_entries')||'null')}catch(e){}
   if(!Array.isArray(entries)||!entries.length)entries=[{n:'yokiie',m:'first ♡ luv this lil corner of the web'},{n:'crystalfairy99',m:'the crystal room made me cry (good way)'}];
-  const render=()=>{list.innerHTML=entries.map(e=>`<div class="gb-entry"><b>✦ ${esc(e.n)}</b><p>${esc(e.m)}</p></div>`).join('');list.scrollTop=list.scrollHeight;};
+  entries=entries.slice(-MAX_ENTRIES);
+  const render=()=>{list.replaceChildren(...entries.map(e=>{
+    const d=document.createElement('div');d.className='gb-entry';
+    const b=document.createElement('b');b.textContent=`✦ ${e.n}`;
+    const p=document.createElement('p');p.textContent=e.m;
+    d.append(b,p);return d;
+  }));list.scrollTop=list.scrollHeight;};
   render();
   function run(msg,done){loader.classList.add('show');bar.classList.remove('go');void bar.offsetWidth;bar.classList.add('go');lmsg.textContent=msg;
     setTimeout(()=>{lmsg.textContent=done;setTimeout(()=>loader.classList.remove('show'),750);},1250);}
   form.addEventListener('submit',e=>{e.preventDefault();const n=$('#gbName').value.trim(),m=$('#gbMsg').value.trim();if(!n||!m)return;
-    entries.push({n,m});try{localStorage.setItem('gb_entries',JSON.stringify(entries))}catch(_){}render();form.reset();run('saving…','✓ saved ♡');});
+    entries.push({n,m});entries=entries.slice(-MAX_ENTRIES);
+    try{localStorage.setItem('gb_entries',JSON.stringify(entries))}catch(_){}render();form.reset();run('saving…','✓ saved ♡');});
   new IntersectionObserver((es,o)=>es.forEach(x=>{if(x.isIntersecting){run('loading…','✓ loaded');o.disconnect();}}),{threshold:.35}).observe($('#gbApp'));
 })();
 
