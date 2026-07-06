@@ -1,0 +1,6 @@
+# image-processing working files — keep out of the deployed site
+_work/
+_w*/
+
+.DS_Store
+Thumbs.db
