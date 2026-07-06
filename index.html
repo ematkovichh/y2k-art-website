@@ -596,6 +596,10 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   box-shadow:0 0 18px #2fffc0;display:flex;align-items:center;justify-content:center;font-family:var(--mono);color:#7dffd0;
   bottom:14%;right:14%;animation:flick 4s steps(1) infinite}
 
+/* keyboard focus (visible only when navigating by keyboard) */
+a:focus-visible,button:focus-visible,[role="button"]:focus-visible,input:focus-visible,textarea:focus-visible{
+  outline:2px solid var(--pink-hot);outline-offset:2px}
+
 /* ===== REDUCED MOTION: freeze all decorative animation, show content directly ===== */
 @media (prefers-reduced-motion: reduce){
   *,*::before,*::after{animation:none !important;transition:none !important}
@@ -609,10 +613,10 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
 <body>
 
 <!-- FX overlays -->
-<div class="grain"></div>
-<div class="scanlines"></div>
-<div class="vignette"></div>
-<div class="blobs"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
+<div class="grain" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+<div class="vignette" aria-hidden="true"></div>
+<div class="blobs" aria-hidden="true"><div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div></div>
 <div id="pixie" aria-hidden="true"></div>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="liquid"><feTurbulence type="fractalNoise" baseFrequency="0.012 0.02" numOctaves="2" result="n"><animate attributeName="baseFrequency" dur="14s" values="0.012 0.02;0.02 0.03;0.012 0.02" repeatCount="indefinite"/></feTurbulence><feDisplacementMap in="SourceGraphic" in2="n" scale="7"/></filter></svg>
 <div id="rail"></div>
@@ -628,8 +632,8 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
     <div class="xp-ico"><div class="dico dico-cd"></div>archive.exe</div>
   </div>
 
-  <span class="float-butterfly" style="top:18%;left:14%">🦋</span>
-  <span class="float-butterfly" style="top:30%;right:18%;animation-delay:-4s">🦋</span>
+  <span aria-hidden="true" class="float-butterfly" style="top:18%;left:14%">🦋</span>
+  <span aria-hidden="true" class="float-butterfly" style="top:30%;right:18%;animation-delay:-4s">🦋</span>
 
   <!-- eerie Y2K popups -->
   <div class="win popup intro-flicker" style="top:8%;left:46%;transform:rotate(-1deg)">
@@ -720,9 +724,9 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
 <section id="top" style="display:flex;flex-direction:column;justify-content:center;background:radial-gradient(120% 120% at 50% 20%,#2a1430,#070409)">
   <div class="rv in" style="max-width:1100px">
     <div class="room-tag" style="position:static;margin-bottom:18px">⟢ now showing · scroll to wander ⟣</div>
-    <h1 class="room-title chroma" data-t="a fever dream" style="font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(2.4rem,8vw,6rem);line-height:1;-webkit-text-fill-color:initial;background:none;color:var(--cream)">
+    <h2 class="room-title chroma" data-t="a fever dream" style="font-family:var(--serif);font-style:italic;font-weight:300;font-size:clamp(2.4rem,8vw,6rem);line-height:1;-webkit-text-fill-color:initial;background:none;color:var(--cream)">
       every scroll reveals<br>another piece of a<br><span class="chroma" data-t="visual story" style="font-family:var(--script);font-size:clamp(3rem,12vw,9rem);background:var(--holo);background-size:300%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:holoMove 9s ease infinite">visual story</span>
-    </h1>
+    </h2>
     <p class="room-lede float" style="margin-top:26px;max-width:40ch">Not a portfolio. A place. Wander through five rooms of iridescent light, neon memory, and soft static.</p>
   </div>
   <div style="position:absolute;bottom:34px;left:50%;transform:translateX(-50%);font-family:var(--mono);letter-spacing:.3em;opacity:.6">↓ descend ↓</div>
@@ -730,15 +734,15 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
 
 <!-- ROOM 1 — CRYSTAL DREAMS -->
 <section id="crystal" data-room="crystal">
-  <span class="kanji" style="top:14%;right:4%">硝子</span>
+  <span aria-hidden="true" class="kanji" style="top:14%;right:4%">硝子</span>
   <div class="room-tag rv">💎 room 01 · <span class="room-no">crystallis</span></div>
   <h2 class="room-title rv d1">Crystal Dreams</h2>
   <p class="room-lede rv d2">Prisms of someone you almost remember. Light bent until it becomes a feeling.</p>
   <div class="crystal-stage">
-    <div class="art crystal cd-a rv tilt" data-room="crystal"><div class="surface"></div><img class="photo" src="img/crystal.jpg" alt="" onerror="this.remove()"><span class="cap">◇ prism no.1 — "refraction of a kiss"</span></div>
-    <div class="art iri cd-b rv d1 tilt"><div class="surface"></div><img class="photo" src="img/cryB.jpg" alt="" onerror="this.remove()"><span class="cap">◇ no.2 — "perfume haze"</span></div>
-    <div class="art crystal cd-c rv d2 tilt"><div class="surface"></div><img class="photo" src="img/cryC.jpg" alt="" onerror="this.remove()"><span class="cap">◇ no.3 — "honey glass"</span></div>
-    <div class="art iri cd-d rv d3 tilt"><div class="surface"></div><img class="photo" src="img/cryD.jpg" alt="" onerror="this.remove()"><span class="cap">◇ no.4 — "ice quartz"</span></div>
+    <div class="art crystal cd-a rv tilt" data-room="crystal"><div class="surface"></div><img class="photo" src="img/crystal.jpg" alt="Iridescent prism artwork — “refraction of a kiss”" onerror="this.remove()"><span class="cap">◇ prism no.1 — "refraction of a kiss"</span></div>
+    <div class="art iri cd-b rv d1 tilt"><div class="surface"></div><img class="photo" src="img/cryB.jpg" alt="Holographic artwork — “perfume haze”" onerror="this.remove()"><span class="cap">◇ no.2 — "perfume haze"</span></div>
+    <div class="art crystal cd-c rv d2 tilt"><div class="surface"></div><img class="photo" src="img/cryC.jpg" alt="Crystal artwork — “honey glass”" onerror="this.remove()"><span class="cap">◇ no.3 — "honey glass"</span></div>
+    <div class="art iri cd-d rv d3 tilt"><div class="surface"></div><img class="photo" src="img/cryD.jpg" alt="Crystal artwork — “ice quartz”" onerror="this.remove()"><span class="cap">◇ no.4 — "ice quartz"</span></div>
 
     <div class="win cd-win rv d1">
       <div class="win-bar"><span>✦ wall_text.txt — Notepad</span><div class="btns"><span>_</span><span>☐</span><span>✕</span></div></div>
@@ -757,10 +761,10 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   <h2 class="room-title rv d1">After Hours</h2>
   <p class="room-lede rv d2">recovered nightlife files — the city after the flash goes off. neon, sweat &amp; 4am taxis.</p>
   <div class="mini-grid">
-    <div class="art neon rv tilt"><div class="surface"></div><img class="photo" src="img/club.jpg" alt="" onerror="this.remove()"><span class="cap">club_blur.jpg</span></div>
-    <div class="art neon2 rv d1 tilt"><div class="surface"></div><img class="photo" src="img/rave.jpg" alt="" onerror="this.remove()"><span class="cap">rave_artifact.bmp</span></div>
-    <div class="art tan rv d2 tilt"><div class="surface"></div><img class="photo" src="img/office.jpg" alt="" onerror="this.remove()"><span class="cap">office_colorshift.jpg</span></div>
-    <div class="art neon rv d3 tilt"><div class="surface"></div><img class="photo" src="img/street.jpg" alt="" onerror="this.remove()"><span class="cap">street_cyber.png</span></div>
+    <div class="art neon rv tilt"><div class="surface"></div><img class="photo" src="img/club.jpg" alt="Blurred nightclub lights" onerror="this.remove()"><span class="cap">club_blur.jpg</span></div>
+    <div class="art neon2 rv d1 tilt"><div class="surface"></div><img class="photo" src="img/rave.jpg" alt="Rave light artifact" onerror="this.remove()"><span class="cap">rave_artifact.bmp</span></div>
+    <div class="art tan rv d2 tilt"><div class="surface"></div><img class="photo" src="img/office.jpg" alt="Colour-shifted office at night" onerror="this.remove()"><span class="cap">office_colorshift.jpg</span></div>
+    <div class="art neon rv d3 tilt"><div class="surface"></div><img class="photo" src="img/street.jpg" alt="Neon-lit cyber street" onerror="this.remove()"><span class="cap">street_cyber.png</span></div>
   </div>
 </section>
 
@@ -770,10 +774,10 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   <h2 class="room-title rv d1">Rewind</h2>
   <p class="room-lede rv d2">press play on a memory that isn't yours. gameboys, golden hours &amp; a techno night in 2001.</p>
   <div class="mini-grid">
-    <div class="art soft rv tilt"><div class="surface"></div><img class="photo" src="img/game.jpg" alt="" onerror="this.remove()"><span class="cap">nostalgia_test_01.bmp</span></div>
-    <div class="art iri rv d1 tilt"><div class="surface"></div><img class="photo" src="img/pile.jpg" alt="" onerror="this.remove()"><span class="cap">lost_pile.jpg</span></div>
-    <div class="art soft rv d2 tilt"><div class="surface"></div><img class="photo" src="img/golden.jpg" alt="" onerror="this.remove()"><span class="cap">golden_hour_vibe.png</span></div>
-    <div class="art neon2 rv d3 tilt"><div class="surface"></div><img class="photo" src="img/techno.jpg" alt="" onerror="this.remove()"><span class="cap">techno_club_2001.gif</span></div>
+    <div class="art soft rv tilt"><div class="surface"></div><img class="photo" src="img/game.jpg" alt="Handheld console — nostalgia test" onerror="this.remove()"><span class="cap">nostalgia_test_01.bmp</span></div>
+    <div class="art iri rv d1 tilt"><div class="surface"></div><img class="photo" src="img/pile.jpg" alt="Pile of lost devices" onerror="this.remove()"><span class="cap">lost_pile.jpg</span></div>
+    <div class="art soft rv d2 tilt"><div class="surface"></div><img class="photo" src="img/golden.jpg" alt="Golden-hour glow" onerror="this.remove()"><span class="cap">golden_hour_vibe.png</span></div>
+    <div class="art neon2 rv d3 tilt"><div class="surface"></div><img class="photo" src="img/techno.jpg" alt="Techno club, 2001" onerror="this.remove()"><span class="cap">techno_club_2001.gif</span></div>
   </div>
   <div class="cd-player rv d2">
     <div class="cd-disc" id="cdDisc" title="click to spin"></div>
@@ -783,15 +787,15 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
 
 <!-- ROOM 2 — NEON MEMORIES -->
 <section id="neon" data-room="neon">
-  <span class="kanji" style="top:18%;left:5%;color:var(--pink-hot);text-shadow:0 0 18px var(--pink-hot)">夜光</span>
+  <span aria-hidden="true" class="kanji" style="top:18%;left:5%;color:var(--pink-hot);text-shadow:0 0 18px var(--pink-hot)">夜光</span>
   <div class="room-tag rv">🌃 room 02 · <span class="room-no">noctis</span></div>
   <h2 class="room-title rv d1">Neon Memories</h2>
   <p class="room-lede rv d2">A city that only exists at 3am. Rain on chrome, a payphone still ringing.</p>
   <div style="margin:30px 0 0" class="rv d2"><span class="neon-sign">恋 · love hotel · 恋</span></div>
   <div class="neon-grid">
-    <div class="art neon nm-1 rv tilt"><div class="surface"></div><img class="photo" src="img/neon.jpg" alt="" onerror="this.remove()"><span class="cap">▦ "tanning bed seraph"</span></div>
-    <div class="art neon2 nm-2 rv d1 tilt float"><div class="surface"></div><img class="photo" src="img/frag_dark.jpg" alt="" onerror="this.remove()"><span class="cap">▦ "blue hour, dial tone"</span></div>
-    <div class="art tan nm-3 rv d2 tilt"><div class="surface"></div><img class="photo" src="img/frag_light2.jpg" alt="" onerror="this.remove()"><span class="cap">▦ wide — "UV / 紫外線"</span></div>
+    <div class="art neon nm-1 rv tilt"><div class="surface"></div><img class="photo" src="img/neon.jpg" alt="Neon artwork — “tanning bed seraph”" onerror="this.remove()"><span class="cap">▦ "tanning bed seraph"</span></div>
+    <div class="art neon2 nm-2 rv d1 tilt float"><div class="surface"></div><img class="photo" src="img/frag_dark.jpg" alt="Night fragment — “blue hour, dial tone”" onerror="this.remove()"><span class="cap">▦ "blue hour, dial tone"</span></div>
+    <div class="art tan nm-3 rv d2 tilt"><div class="surface"></div><img class="photo" src="img/frag_light2.jpg" alt="Wide ultraviolet fragment" onerror="this.remove()"><span class="cap">▦ wide — "UV / 紫外線"</span></div>
   </div>
 </section>
 
@@ -803,7 +807,7 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
     <p style="font-family:var(--serif);font-style:italic;font-size:clamp(1.4rem,4vw,2.6rem);color:#e9dcc0;margin-top:14px;text-shadow:0 0 20px rgba(0,0,0,.6)">the hum of the lights. the carpet remembers you.</p>
     <p class="hum" style="margin-top:18px;font-size:.8rem;opacity:.7">▮ rec · no signal · keep walking ▮</p>
   </div>
-  <div class="smiley">^‿^</div>
+  <div class="smiley" aria-hidden="true">^‿^</div>
 </section>
 
 <!-- ROOM 3 — DIGITAL ANGELS -->
@@ -814,10 +818,10 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   <div class="wings rv d2">
     <div class="wing l float"></div>
     <div class="wing r float" style="animation-delay:-2s"></div>
-    <div class="art angel wing-art tilt"><div class="surface"></div><img class="photo" src="img/angels.jpg" alt="" onerror="this.remove()"><span class="cap" style="left:50%;transform:translateX(-50%)">♡ "patron saint of the group chat"</span></div>
-    <span class="butterfly" style="top:0;left:10%">🦋</span>
-    <span class="butterfly" style="bottom:8%;right:4%;animation-delay:-3s">🦋</span>
-    <span class="butterfly" style="top:30%;right:-4%;animation-delay:-5s">✦</span>
+    <div class="art angel wing-art tilt"><div class="surface"></div><img class="photo" src="img/angels.jpg" alt="Angel artwork — “patron saint of the group chat”" onerror="this.remove()"><span class="cap" style="left:50%;transform:translateX(-50%)">♡ "patron saint of the group chat"</span></div>
+    <span aria-hidden="true" class="butterfly" style="top:0;left:10%">🦋</span>
+    <span aria-hidden="true" class="butterfly" style="bottom:8%;right:4%;animation-delay:-3s">🦋</span>
+    <span aria-hidden="true" class="butterfly" style="top:30%;right:-4%;animation-delay:-5s">✦</span>
   </div>
 
   <div class="void-env rv d1">
@@ -855,23 +859,23 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   <div class="y2k-grid">
     <div class="win yw-1 rv tilt">
       <div class="win-bar"><span>♥ my_room.bmp</span><div class="btns"><span>_</span><span>□</span><span>✕</span></div></div>
-      <div class="win-body"><div class="art soft" style="aspect-ratio:4/3"><div class="surface"></div><img class="photo" src="img/y2k.jpg" alt="" onerror="this.remove()"><span class="cap">📁 dollhouse.jpg</span></div>
+      <div class="win-body"><div class="art soft" style="aspect-ratio:4/3"><div class="surface"></div><img class="photo" src="img/y2k.jpg" alt="Pink Y2K bedroom — dollhouse.jpg" onerror="this.remove()"><span class="cap">📁 dollhouse.jpg</span></div>
       <p style="font-size:1rem;margin-top:8px">C:\dreams\2001\ &gt; 47 items · 12.4 MB</p></div>
     </div>
     <div class="win yw-2 rv d1 tilt">
       <div class="win-bar"><span>▶ webcam_clip.avi</span><div class="btns"><span>_</span><span>□</span><span>✕</span></div></div>
-      <div class="win-body"><div class="crt"><div class="screen art tan"><div class="surface"></div><img class="photo" src="img/y2kcrt.jpg" alt="" onerror="this.remove()"><span class="cap">●REC 00:01:19</span></div></div>
+      <div class="win-body"><div class="crt"><div class="screen art tan"><div class="surface"></div><img class="photo" src="img/y2kcrt.jpg" alt="Webcam still on a CRT screen" onerror="this.remove()"><span class="cap">●REC 00:01:19</span></div></div>
       <p style="font-size:1rem;margin-top:8px;text-align:center">▮▮▮▮▮▯▯▯ buffering…</p></div>
     </div>
     <div class="win yw-3 rv d2 tilt">
       <div class="win-bar"><span>✿ guest_pics/</span><div class="btns"><span>_</span><span>□</span><span>✕</span></div></div>
       <div class="win-body" style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px">
-        <div class="art iri" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/mood1.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art neon" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/y2k_a.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art angel" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/mood2.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art soft" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/y2k_b.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art crystal" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/mood3.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art tan" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/y2k_c.jpg" alt="" onerror="this.remove()"></div>
+        <div class="art iri" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/mood1.jpg" alt="Guest picture — mood 1" onerror="this.remove()"></div>
+        <div class="art neon" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/y2k_a.jpg" alt="Guest picture — Y2K a" onerror="this.remove()"></div>
+        <div class="art angel" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/mood2.jpg" alt="Guest picture — mood 2" onerror="this.remove()"></div>
+        <div class="art soft" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/y2k_b.jpg" alt="Guest picture — Y2K b" onerror="this.remove()"></div>
+        <div class="art crystal" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/mood3.jpg" alt="Guest picture — mood 3" onerror="this.remove()"></div>
+        <div class="art tan" style="aspect-ratio:1"><div class="surface"></div><img class="photo" src="img/y2k_c.jpg" alt="Guest picture — Y2K c" onerror="this.remove()"></div>
       </div></div>
     </div>
   </div>
@@ -883,14 +887,14 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   <h2 class="room-title rv d1">Downloads</h2>
   <p class="room-lede rv d2">eight files pulled from a dead drive — half-corrupted, still glowing. saved to <span style="font-family:var(--mono)">C:\\downloads\\</span></p>
   <div class="pics-grid">
-    <div class="art iri pg-1 rv tilt"><div class="surface"></div><img class="photo" src="img/frag_light1.jpg" alt=""><span class="cap">dl_001.jpg</span></div>
-    <div class="art neon pg-2 rv d1 tilt"><div class="surface"></div><img class="photo" src="img/atrium.jpg" alt=""><span class="cap">dl_002.bmp</span></div>
-    <div class="art soft pg-3 rv d2 tilt"><div class="surface"></div><img class="photo" src="img/soft_a.jpg" alt=""><span class="cap">dl_003.png</span></div>
+    <div class="art iri pg-1 rv tilt"><div class="surface"></div><img class="photo" src="img/frag_light1.jpg" alt="Recovered file dl_001 — light fragment"><span class="cap">dl_001.jpg</span></div>
+    <div class="art neon pg-2 rv d1 tilt"><div class="surface"></div><img class="photo" src="img/atrium.jpg" alt="Recovered file dl_002 — glowing atrium"><span class="cap">dl_002.bmp</span></div>
+    <div class="art soft pg-3 rv d2 tilt"><div class="surface"></div><img class="photo" src="img/soft_a.jpg" alt="Recovered file dl_003 — soft pastel blur"><span class="cap">dl_003.png</span></div>
     <div class="art angel pg-4 rv d3 tilt"><div class="surface"></div><span class="cap">dl_004.gif</span></div>
     <div class="art tan pg-5 rv tilt"><div class="surface"></div><span class="cap">dl_005.jpg</span></div>
-    <div class="art crystal pg-6 rv d1 tilt"><div class="surface"></div><img class="photo" src="img/crystal2.jpg" alt=""><span class="cap">dl_006.bmp</span></div>
+    <div class="art crystal pg-6 rv d1 tilt"><div class="surface"></div><img class="photo" src="img/crystal2.jpg" alt="Recovered file dl_006 — crystal shard"><span class="cap">dl_006.bmp</span></div>
     <div class="art neon2 pg-7 rv d2 tilt"><div class="surface"></div><span class="cap">dl_007.png</span></div>
-    <div class="art iri pg-8 rv d3 tilt"><div class="surface"></div><img class="photo" src="img/soft_b.jpg" alt=""><span class="cap">dl_008.jpg</span></div>
+    <div class="art iri pg-8 rv d3 tilt"><div class="surface"></div><img class="photo" src="img/soft_b.jpg" alt="Recovered file dl_008 — soft pastel haze"><span class="cap">dl_008.jpg</span></div>
   </div>
 </section>
 
@@ -900,10 +904,10 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   <h2 class="room-title rv d1">Music Videos</h2>
   <p class="room-lede rv d2">stills pulled from the tape — slowed, dimmed, left to glow in the dark.</p>
   <div class="mv-grid">
-    <div class="art mv soft mv-a rv tilt"><div class="surface"></div><img class="photo" src="img/mv1.jpg" alt="" onerror="this.remove()"><span class="cap">reel_01 · 00:42</span></div>
-    <div class="art mv crystal mv-b rv d1 tilt"><div class="surface"></div><img class="photo" src="img/mv3.jpg" alt="" onerror="this.remove()"><span class="cap">reel_02 · 01:17</span></div>
-    <div class="art mv tan mv-c rv d2 tilt"><div class="surface"></div><img class="photo" src="img/mv2.jpg" alt="" onerror="this.remove()"><span class="cap">reel_03 · 02:03</span></div>
-    <div class="art mv neon mv-d rv d3 tilt"><div class="surface"></div><img class="photo" src="img/mv4.jpg" alt="" onerror="this.remove()"><span class="cap">reel_04 · 03:28</span></div>
+    <div class="art mv soft mv-a rv tilt"><div class="surface"></div><img class="photo" src="img/mv1.jpg" alt="Music video still — reel 01" onerror="this.remove()"><span class="cap">reel_01 · 00:42</span></div>
+    <div class="art mv crystal mv-b rv d1 tilt"><div class="surface"></div><img class="photo" src="img/mv3.jpg" alt="Music video still — reel 02" onerror="this.remove()"><span class="cap">reel_02 · 01:17</span></div>
+    <div class="art mv tan mv-c rv d2 tilt"><div class="surface"></div><img class="photo" src="img/mv2.jpg" alt="Music video still — reel 03" onerror="this.remove()"><span class="cap">reel_03 · 02:03</span></div>
+    <div class="art mv neon mv-d rv d3 tilt"><div class="surface"></div><img class="photo" src="img/mv4.jpg" alt="Music video still — reel 04" onerror="this.remove()"><span class="cap">reel_04 · 03:28</span></div>
   </div>
 </section>
 
@@ -913,9 +917,9 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
   <h2 class="room-title rv d1" style="filter:drop-shadow(0 0 24px #fff)">Soft Fantasy</h2>
   <p class="room-lede rv d2">The exit is also a beginning. Everything here is out of focus on purpose.</p>
   <div class="soft-stage">
-    <div class="art soft sf-big rv tilt"><div class="surface"></div><img class="photo" src="img/soft.jpg" alt="" onerror="this.remove()"><span class="cap">❀ panorama — "the long pink afternoon"</span></div>
-    <div class="art iri sf-s1 rv d1 tilt float"><div class="surface"></div><img class="photo" src="img/dream1.jpg" alt="" onerror="this.remove()"><span class="cap">❀ "haze"</span></div>
-    <div class="art angel sf-s2 rv d2 tilt float"><div class="surface"></div><img class="photo" src="img/dream2.jpg" alt="" onerror="this.remove()"><span class="cap">❀ "tender"</span></div>
+    <div class="art soft sf-big rv tilt"><div class="surface"></div><img class="photo" src="img/soft.jpg" alt="Panorama — “the long pink afternoon”" onerror="this.remove()"><span class="cap">❀ panorama — "the long pink afternoon"</span></div>
+    <div class="art iri sf-s1 rv d1 tilt float"><div class="surface"></div><img class="photo" src="img/dream1.jpg" alt="Soft-focus artwork — “haze”" onerror="this.remove()"><span class="cap">❀ "haze"</span></div>
+    <div class="art angel sf-s2 rv d2 tilt float"><div class="surface"></div><img class="photo" src="img/dream2.jpg" alt="Soft-focus artwork — “tender”" onerror="this.remove()"><span class="cap">❀ "tender"</span></div>
   </div>
 </section>
 
@@ -987,10 +991,10 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
     <div class="win widget rv">
       <div class="win-bar"><span>📷 GALLERY</span><div class="btns"><span class="x">✕</span></div></div>
       <div class="win-body"><div style="display:grid;grid-template-columns:repeat(2,1fr);gap:6px">
-        <div class="art crystal" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_a.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art angel" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_b.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art neon" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_c.jpg" alt="" onerror="this.remove()"></div>
-        <div class="art tan" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_d.jpg" alt="" onerror="this.remove()"></div>
+        <div class="art crystal" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_a.jpg" alt="Shrine gallery thumbnail 1" onerror="this.remove()"></div>
+        <div class="art angel" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_b.jpg" alt="Shrine gallery thumbnail 2" onerror="this.remove()"></div>
+        <div class="art neon" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_c.jpg" alt="Shrine gallery thumbnail 3" onerror="this.remove()"></div>
+        <div class="art tan" style="aspect-ratio:1;border-radius:3px"><div class="surface"></div><img class="photo" src="img/shr_d.jpg" alt="Shrine gallery thumbnail 4" onerror="this.remove()"></div>
       </div><p style="font-size:.8rem;margin-top:8px;text-align:center">♡ 4 of 47 files ♡</p></div>
     </div>
 
@@ -1016,8 +1020,8 @@ section{position:relative;min-height:100vh;padding:clamp(80px,12vh,160px) clamp(
       <div class="win-body">
         <div class="gb-list" id="gbList"></div>
         <form class="gb-form" id="gbForm">
-          <input id="gbName" type="text" placeholder="your name / handle" maxlength="24" required>
-          <textarea id="gbMsg" rows="2" placeholder="leave a trace…" maxlength="140" required></textarea>
+          <input id="gbName" type="text" aria-label="your name or handle" placeholder="your name / handle" maxlength="24" required>
+          <textarea id="gbMsg" rows="2" aria-label="your message" placeholder="leave a trace…" maxlength="140" required></textarea>
           <button type="submit" class="gb-sign">sign the wall ✦</button>
         </form>
         <div class="gb-loader" id="gbLoader"><div class="gb-bar"><i></i></div><span id="gbLoadMsg">saving…</span></div>
@@ -1153,6 +1157,14 @@ if(FINE_POINTER)$$('.tilt').forEach(el=>{
     el.style.transform=`perspective(900px) rotateY(${px*9}deg) rotateX(${-py*9}deg) scale(1.02)`;});
   el.addEventListener('mouseleave',()=>el.style.transform='');
 });
+
+/* keyboard access for the clickable window chrome (spans/divs styled as XP controls) */
+[['.popup .winx','close window'],['.welcome .winx','enter the archive'],['.navx','back to desktop'],
+ ['.widget .win-bar .x','close widget'],['#crtScreen','pause or resume the notepad typewriter'],['#cdDisc','spin the CD']]
+.forEach(([sel,label])=>$$(sel).forEach(el=>{
+  el.setAttribute('role','button');el.setAttribute('tabindex','0');el.setAttribute('aria-label',label);
+  el.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.click();}});
+}));
 </script>
 </body>
 </html>

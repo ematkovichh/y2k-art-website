@@ -30,18 +30,18 @@
   <div class="form-wrap">
     <!-- Concept site: the form has no backend; submissions show a thank-you and are not sent anywhere. -->
     <form class="form-grid reveal" onsubmit="event.preventDefault(); this.innerHTML='<div class=\'field full\' style=\'text-align:center\'><h3 style=\'font-family:var(--serif);font-size:2rem\'>Thank you — we\'ll be in touch soon.</h3></div>';">
-      <div class="field"><label>First name</label><input type="text" required></div>
-      <div class="field"><label>Last name</label><input type="text" required></div>
-      <div class="field"><label>Email</label><input type="email" required></div>
-      <div class="field"><label>Phone</label><input type="tel"></div>
-      <div class="field"><label>City</label><input type="text"></div>
-      <div class="field"><label>Date of birth</label><input type="date"></div>
-      <div class="field"><label>Height (cm)</label><input type="number"></div>
-      <div class="field"><label>Category</label>
-        <select><option>Women</option><option>Men</option><option>Beauty</option><option>New faces</option></select>
+      <div class="field"><label for="ap-first">First name</label><input id="ap-first" type="text" required></div>
+      <div class="field"><label for="ap-last">Last name</label><input id="ap-last" type="text" required></div>
+      <div class="field"><label for="ap-email">Email</label><input id="ap-email" type="email" required></div>
+      <div class="field"><label for="ap-phone">Phone</label><input id="ap-phone" type="tel"></div>
+      <div class="field"><label for="ap-city">City</label><input id="ap-city" type="text"></div>
+      <div class="field"><label for="ap-dob">Date of birth</label><input id="ap-dob" type="date"></div>
+      <div class="field"><label for="ap-height">Height (cm)</label><input id="ap-height" type="number"></div>
+      <div class="field"><label for="ap-cat">Category</label>
+        <select id="ap-cat"><option>Women</option><option>Men</option><option>Beauty</option><option>New faces</option></select>
       </div>
-      <div class="field full"><label>Instagram / portfolio</label><input type="text" placeholder="@yourhandle"></div>
-      <div class="field full"><label>Tell us about yourself</label><textarea placeholder="A few words — where you're from, what you love."></textarea></div>
+      <div class="field full"><label for="ap-insta">Instagram / portfolio</label><input id="ap-insta" type="text" placeholder="@yourhandle"></div>
+      <div class="field full"><label for="ap-about">Tell us about yourself</label><textarea id="ap-about" placeholder="A few words — where you're from, what you love."></textarea></div>
       <div class="upload-box"><span>↑ Drag in your snapshots · portrait, profile &amp; full-length</span></div>
       <div class="field full" style="margin-top:10px"><button type="submit" class="btn btn-fill">Submit application</button></div>
     </form>

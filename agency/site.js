@@ -9,12 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggle = document.querySelector('.nav-toggle');
   const links = document.querySelector('.nav-links');
   if (toggle) {
+    toggle.setAttribute('aria-expanded', 'false');
     toggle.addEventListener('click', () => {
-      links.classList.toggle('open');
-      toggle.textContent = links.classList.contains('open') ? '✕' : '☰';
+      const open = links.classList.toggle('open');
+      toggle.textContent = open ? '✕' : '☰';
+      toggle.setAttribute('aria-expanded', String(open));
     });
     links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
       links.classList.remove('open'); toggle.textContent = '☰';
+      toggle.setAttribute('aria-expanded', 'false');
     }));
   }
 
