@@ -18,6 +18,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }));
   }
 
+  // model roster filter (models.html)
+  const filterBar = document.querySelector('.filter-bar');
+  if (filterBar) {
+    const cards = document.querySelectorAll('.roster .model-card');
+    filterBar.addEventListener('click', e => {
+      const btn = e.target.closest('button[data-filter]');
+      if (!btn) return;
+      filterBar.querySelectorAll('button').forEach(b => b.classList.toggle('active', b === btn));
+      const f = btn.dataset.filter;
+      cards.forEach(c => {
+        c.style.display = (f === 'all' || (c.dataset.cat || '').split(' ').includes(f)) ? '' : 'none';
+      });
+    });
+  }
+
   // scroll reveal
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
