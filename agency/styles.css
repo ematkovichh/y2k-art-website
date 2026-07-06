@@ -283,3 +283,10 @@ p{ max-width:62ch; }
 .map-ph{ aspect-ratio:4/5; border-radius:4px; }
 @media(max-width:860px){ .contact-split{ grid-template-columns:1fr; } }
 
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *, *::before, *::after{ animation:none !important; transition:none !important; }
+  html{ scroll-behavior:auto; }
+  .reveal{ opacity:1; transform:none; }
+}
+
