@@ -1,5 +1,5 @@
-✦ AGORA — a digital fever dream ✦
-Open index.html in a browser. Click "enter the dream" and scroll.
+✦ Y2K ART ARCHIVE — a digital fever dream ✦
+Open index.html in a browser. Click "enter the archive" and scroll.
 
 THE FIVE ROOMS (+ a liminal corridor between Neon and Angels)
   💎 Crystal Dreams   — iridescent / prism / holographic
@@ -14,21 +14,24 @@ AESTHETIC NOTES (your references, baked in)
   - Coquette girlhood + Y2K: ribbons, lace, desktop windows, guestbook
   - Doja "Agora Hills" + A$AP "LSD": holographic, chromatic aberration, VHS scanlines
 
-HOW TO DROP IN YOUR OWN PHOTOGRAPHY
-  Every artwork is a <div class="art ..."> with an empty <div class="surface"></div>.
-  Two ways to use a real image:
+HOW TO SWAP IN YOUR OWN PHOTOGRAPHY
+  Every artwork is a <div class="art ..."> holding a gradient placeholder
+  (<div class="surface">) plus, for real photos, an <img class="photo">:
 
-  1) Easiest — set a background on the surface:
-     <div class="surface" style="background-image:url('img/your-photo.jpg')"></div>
+     <div class="art iri"><div class="surface"></div>
+       <img class="photo" src="img/your-photo.jpg" alt="describe it">
+       <span class="cap">your caption</span></div>
 
-  2) Or replace the surface with an <img>:
-     <div class="art ..."><img src="img/your-photo.jpg" alt="">...</div>
-
-  The soft-focus/film overlay sits on top automatically, so your photos
-  inherit the dreamy Petra-Collins wash. Remove ".art .surface{filter:...}"
-  in the <style> if you want them perfectly sharp.
+  Photos live in img/. If the <img> is missing, the holographic surface
+  gradient shows instead — that's the intentional placeholder look.
+  The soft-focus/film overlay sits on top automatically, so photos inherit
+  the dreamy Petra-Collins wash. Remove ".art img.photo{filter:...}" in the
+  <style> if you want them perfectly sharp.
 
 GOOD TO KNOW
-  - Single self-contained file. No build step, works offline (fonts load from Google).
-  - Custom cursor, scroll reveals, holographic tilt, parallax, progress rail.
-  - Recommended reading you mentioned: Petra Collins, "Fairy Tales" 🎀
+  - Static page, no build step. All CSS/JS is inline in index.html; photos
+    load from img/ and fonts from Google.
+  - Custom cursor, scroll reveals, holographic tilt, progress rail.
+  - Honors prefers-reduced-motion: all decorative animation freezes.
+  - Sister concept site (ÉTHÉRÉE model agency) lives in agency/.
+  - Recommended reading: Petra Collins, "Fairy Tales" 🎀
